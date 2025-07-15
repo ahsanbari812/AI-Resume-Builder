@@ -208,7 +208,7 @@ function ResumeHeroPreview() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="mt-2">
           <div className="font-semibold text-gray-800 dark:text-cyan-200 text-sm mb-1">Skills</div>
           <div className="flex flex-wrap gap-1">
-            <span className="bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200 rounded-full px-2 py-0.5 text-xs font-medium">React</span>
+            <span className="bg-cyan-100 jtext-cyan-700 dark:bg-cyan-900 dark:text-cyan-200 rounded-full px-2 py-0.5 text-xs font-medium">React</span>
             <span className="bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200 rounded-full px-2 py-0.5 text-xs font-medium">JavaScript</span>
             <span className="bg-cyan-100 text-cyan-700 dark:bg-cyan-900 dark:text-cyan-200 rounded-full px-2 py-0.5 text-xs font-medium">UI/UX</span>
           </div>

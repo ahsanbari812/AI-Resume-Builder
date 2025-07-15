@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useMemo } from 'react'
 import ReactDOM from 'react-dom'
 import { Moon, Sun, Download, Sparkles, Loader2, X } from 'lucide-react'
 import ResumeForm from './components/ResumeForm'
+import { Analytics } from "@vercel/analytics/next"
 import ResumePreview from './components/ResumePreview'
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import ResumePDF from './components/ResumePDF';
