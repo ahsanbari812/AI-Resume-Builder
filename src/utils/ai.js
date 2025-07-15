@@ -14,27 +14,23 @@ const GEMINI_CONFIG = {
  */
 export async function generateResumeSection(prompt, numSuggestions = 1) {
   try {
-    const response = await axios.post(
-      "http://localhost:5000/api/gemini", // Use backend proxy
-      {
+    const response = await fetch('/api/gemini', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
         ...GEMINI_CONFIG,
         prompt: `You are a professional resume writer. Generate ${numSuggestions} distinct, concise, professional options suitable for a resume. Use bullet points where appropriate and keep the tone professional. Separate each option with a line containing only three dashes (---).\n\n${prompt}`
-      }
-    );
-    // Split suggestions by '---' separator
-    return response.data.content.split(/\n?---+\n?/).map(s => s.trim()).filter(Boolean);
-  } catch (error) {
-    console.error("AI generation error:", error);
-    
-    if (error.response?.status === 400) {
-      throw new Error("Invalid request. Please check your input.");
-    } else if (error.response?.status === 429) {
-      throw new Error("Rate limit exceeded. Please try again later.");
-    } else if (error.response?.status >= 500) {
-      throw new Error("Gemini service is currently unavailable. Please try again later.");
-    } else {
-      throw new Error("Failed to generate content. Please check your internet connection and try again.");
+      })
+    });
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || 'Failed to generate content.');
     }
+    const data = await response.json();
+    return data.content.split(/\n?---+\n?/).map(s => s.trim()).filter(Boolean);
+  } catch (error) {
+    console.error('AI generation error:', error);
+    throw new Error(error.message || 'Failed to generate content. Please check your internet connection and try again.');
   }
 }
 
