@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@react-pdf/renderer": "^4.3.0",
     "abs-svg-path": "^0.1.1",
     "acorn": "^8.15.0",
