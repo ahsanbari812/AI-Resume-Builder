@@ -136,14 +136,16 @@ const ResumePreview = React.forwardRef(({ resumeData }, ref) => {
                 edu.institution && (
                   <div key={edu.id} className="mb-4">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="font-semibold text-gray-900">
+                      <h3 className="font-semibold text-blue-600 dark:text-blue-400">
                         {edu.degree} {edu.field && `in ${edu.field}`}
                       </h3>
                       <span className="text-sm text-gray-600 dark:text-gray-200">
                         {formatDate(edu.startDate)} - {formatDate(edu.endDate)}
                       </span>
                     </div>
-                    <p className="text-primary-600 font-medium mb-1">{edu.institution}</p>
+                    <p className="text-white font-medium mb-1">
+                      {edu.institution}
+                    </p>
                     {edu.gpa && (
                       <p className="text-gray-700 text-sm dark:text-gray-200">GPA: {edu.gpa}</p>
                     )}

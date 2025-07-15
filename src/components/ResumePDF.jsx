@@ -145,6 +145,19 @@ const styles = StyleSheet.create({
     marginTop: 2,
     textAlign: 'left',
   },
+  degree: {
+    color: colors.blue,
+    fontWeight: 600,
+    fontSize: 13,
+    textAlign: 'left',
+  },
+  institution: {
+    color: colors.white,
+    fontWeight: 500,
+    fontSize: 12,
+    marginBottom: 2,
+    textAlign: 'left',
+  },
 });
 
 const ResumePDF = ({ resumeData }) => (
